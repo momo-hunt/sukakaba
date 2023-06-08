@@ -1,7 +1,9 @@
 <script>
   import ErrorLogin from "./ErrorLogin.svelte";
   import FormLogin from "./FormLogin.svelte";
+  import SuccessLogin from "./SuccessLogin.svelte";
   let error;
+  let success;
 </script>
 
 <main>
@@ -12,8 +14,10 @@
 
   <ErrorLogin {error} />
 
-  <FormLogin />
+  <FormLogin bind:errorStatus={error} bind:successStatus={success} />
 </main>
+
+<SuccessLogin {success} />
 
 <style>
   main {

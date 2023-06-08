@@ -11,13 +11,13 @@
 
 <style>
   section {
-    background: hsl(206, 100%, 95%);
+    background: hsl(0, 100%, 95%);
     padding: 0.5rem 1rem;
     border-radius: 8px;
   }
 
   h3 {
-    color: red;
+    color: hsl(0, 100%, 40%);
   }
 
   small {

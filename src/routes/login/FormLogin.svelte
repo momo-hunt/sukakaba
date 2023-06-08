@@ -1,11 +1,26 @@
 <script>
+  import { page } from "$app/stores";
+  import { goto } from "$app/navigation";
   import Form from "$lib/components/Form.svelte";
   import LoaderBar from "$lib/elements/LoaderBar.svelte";
 
+  export let errorStatus;
+  export let successStatus;
+  let redirectTo = $page?.url.searchParams.get("redirectTo") ?? "/";
   let loading;
 </script>
 
-<Form action="?/login" title="Login" bind:loading on:success on:error>
+<Form
+  action="?/login"
+  title="Login"
+  bind:loading
+  on:process={() => (errorStatus = false)}
+  on:error={() => (errorStatus = true)}
+  on:success={() => {
+    successStatus = true;
+    setTimeout(() => goto(redirectTo), 3000);
+  }}
+>
   <article>
     <input type="text" name="username" placeholder="Username" />
     <input type="password" name="password" placeholder="Password" />
