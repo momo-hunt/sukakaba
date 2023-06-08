@@ -9,7 +9,7 @@ export const handle = async ({ event, resolve }) => {
     event.locals.user = user || undefined;
   }
 
-  console.log("user", event.locals.user);
+  // console.log("user", event.locals.user);
   const token = event.locals?.user?.token;
   event.locals.db = new DB(token);
 

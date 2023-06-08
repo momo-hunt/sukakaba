@@ -12,9 +12,11 @@
   {action}
   {title}
   method="post"
-  use:enhance={() => {
+  use:enhance={({ submitter }) => {
+    submitter.focus();
     loading = true;
     dispatch("process");
+
     return async ({ result }) => {
       loading = false;
       console.log("result form->", result);
