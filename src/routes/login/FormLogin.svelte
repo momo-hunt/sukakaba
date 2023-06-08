@@ -1,12 +1,19 @@
 <script>
   import Form from "$lib/components/Form.svelte";
+  import LoaderBar from "$lib/elements/LoaderBar.svelte";
+
+  let loading;
 </script>
 
-<Form action="?/login" title="Login" on:success on:error>
+<Form action="?/login" title="Login" bind:loading on:success on:error>
   <article>
     <input type="text" name="username" placeholder="Username" />
     <input type="password" name="password" placeholder="Password" />
-    <button type="submit">Login</button>
+    {#if loading}
+      <LoaderBar />
+    {:else}
+      <button type="submit">Login</button>
+    {/if}
   </article>
 </Form>
 
@@ -29,7 +36,7 @@
   }
 
   input:focus {
-    outline: 2px solid hsl(206, 25%, 75%);
+    outline: 2px solid hsl(206, 70%, 50%);
   }
 
   button[type="submit"] {
@@ -46,18 +53,12 @@
   }
 
   button[type="submit"]:hover {
-    background: hsl(206, 25%, 85%);
+    transition: 0.3s ease;
+    background: hsl(206, 50%, 75%);
   }
 
   button[type="submit"]:focus {
-    background: hsl(206, 25%, 85%);
-    outline: 2px solid hsl(206, 25%, 75%);
-  }
-
-  button[type="submit"]:active,
-  button[type="submit"]:disabled {
-    opacity: 0.6;
-    outline: 2px solid hsl(206, 25%, 75%);
-    background: hsl(206, 10%, 95%);
+    background: hsl(206, 50%, 80%);
+    outline: 2px solid hsl(206, 70%, 50%);
   }
 </style>
