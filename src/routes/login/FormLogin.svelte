@@ -20,7 +20,7 @@
   input {
     background: white;
     border: none;
-    outline: 1px solid hsl(205, 10%, 75%);
+    outline: 1px solid hsl(206, 10%, 85%);
     border-radius: 4px;
     width: 100%;
     height: 2rem;
@@ -28,16 +28,36 @@
     font-size: inherit;
   }
 
+  input:focus {
+    outline: 2px solid hsl(206, 25%, 75%);
+  }
+
   button[type="submit"] {
+    cursor: pointer;
     font-size: inherit;
-    background: hsl(205, 10%, 90%);
-    /* color: white; */
+    background: hsl(206, 50%, 85%);
     border: none;
-    outline: 1px solid hsl(205, 10%, 75%);
+    outline: 1px solid hsl(206, 10%, 85%);
     border-radius: 4px;
     width: 100%;
     height: 2rem;
     padding: 0 1rem;
     text-transform: uppercase;
+  }
+
+  button[type="submit"]:hover {
+    background: hsl(206, 25%, 85%);
+  }
+
+  button[type="submit"]:focus {
+    background: hsl(206, 25%, 85%);
+    outline: 2px solid hsl(206, 25%, 75%);
+  }
+
+  button[type="submit"]:active,
+  button[type="submit"]:disabled {
+    opacity: 0.6;
+    outline: 2px solid hsl(206, 25%, 75%);
+    background: hsl(206, 10%, 95%);
   }
 </style>

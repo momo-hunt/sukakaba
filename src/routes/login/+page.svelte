@@ -21,7 +21,7 @@
     margin: 2rem auto;
     width: min(calc(100% - 2rem), 400px);
     padding: 2rem;
-    outline: 1px solid hsl(205, 10%, 85%);
+    outline: 1px solid hsl(206, 10%, 85%);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -31,6 +31,11 @@
 
   header {
     text-align: center;
+  }
+
+  header h1 {
+    color: hsl(206, 70%, 50%);
+    text-decoration: underline;
   }
 
   header sub {
