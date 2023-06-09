@@ -12,6 +12,7 @@
 <nav>
   <a href="/">Home</a>
   <a href="/pemakaian">Pemakaian</a>
+  <a href="/spj">SPJ</a>
 </nav>
 
 <slot />
