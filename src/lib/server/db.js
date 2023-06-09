@@ -1,37 +1,60 @@
-import { PUBLIC_DB_URL } from "$env/static/public";
+import { SECRET_DB_URL } from "$env/static/private";
+import { error } from "@sveltejs/kit";
 
 class DB {
-  constructor(token) {
-    this.req = { token };
+  constructor() {
+    this.req = {};
     this.time = new Date().getTime().toString();
   }
 
+  setToken(token) {
+    this.req = { ...this.req, token };
+  }
+
   async fetchData() {
-    const url = new URL(PUBLIC_DB_URL);
+    const url = new URL(SECRET_DB_URL);
     url.searchParams.set("req", JSON.stringify(this.req));
     url.searchParams.set("time", this.time);
-    console.log("req->", this.req);
+    // console.log("req->", this.req);
+
     try {
       const res = await fetch(url);
       const response = await res.json();
-      console.log("res->", response);
+
+      if (response?.type && response?.type == "error") {
+        const { status, type, ...err } = response;
+        throw error(status || 400, err);
+      }
+
+      // console.log("respon->", response);
       return response;
     } catch (err) {
-      console.log("err->", err.message);
-      return;
+      console.log("err->", err.message || JSON.stringify(err, null, 2));
+      throw error(err.status || 500, { message: err.message, ...err.body });
     }
   }
 
   collection(collection) {
     this.req = { ...this.req, collection };
+    return this;
   }
 
   async login(username, option, callback) {
     this.req = {
       ...this.req,
       method: "login",
-      collection: "user",
       username,
+      ...option,
+    };
+    const response = await this.fetchData();
+    return callback ? callback(response) : response;
+  }
+
+  async getToken(id, option, callback) {
+    this.req = {
+      ...this.req,
+      method: "getToken",
+      id,
       ...option,
     };
     const response = await this.fetchData();
@@ -42,7 +65,6 @@ class DB {
     this.req = {
       ...this.req,
       method: "logout",
-      collection: "token",
       id,
       ...option,
     };
@@ -80,4 +102,5 @@ class DB {
     return callback ? callback(response) : response;
   }
 }
-export default DB;
+
+export default new DB();

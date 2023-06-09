@@ -5,7 +5,6 @@
   import LoaderBar from "$lib/elements/LoaderBar.svelte";
 
   export let errorStatus;
-  export let successStatus;
   let redirectTo = $page?.url.searchParams.get("redirectTo") ?? "/";
   let loading;
 </script>
@@ -16,14 +15,23 @@
   bind:loading
   on:process={() => (errorStatus = false)}
   on:error={() => (errorStatus = true)}
-  on:success={() => {
-    successStatus = true;
-    setTimeout(() => goto(redirectTo), 3000);
+  on:success={(e) => {
+    goto(redirectTo);
   }}
 >
   <article>
-    <input type="text" name="username" placeholder="Username" />
-    <input type="password" name="password" placeholder="Password" />
+    <input
+      type="text"
+      name="username"
+      placeholder="Username"
+      autocomplete="username"
+    />
+    <input
+      type="password"
+      name="password"
+      placeholder="Password"
+      autocomplete="current-password"
+    />
     {#if loading}
       <LoaderBar />
     {:else}

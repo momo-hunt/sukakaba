@@ -9,7 +9,8 @@
     showConfirmLogout = false;
     if (!e.detail) return;
     const redirectTo = $page.url.pathname + $page.url.search;
-    goto(`/logout?redirectTo=${redirectTo}`);
+    const id = $page.data?.user?.id;
+    goto(`/logout?redirectTo=${redirectTo}&id=${id}`);
   }
 </script>
 
