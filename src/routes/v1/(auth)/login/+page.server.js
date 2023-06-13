@@ -1,4 +1,5 @@
 import { fail } from "@sveltejs/kit";
+import bcrypt from "bcrypt";
 
 export const load = ({ url }) => {
   let redirectTo = url.searchParams.get("redirectTo");
@@ -32,6 +33,7 @@ export const actions = {
       path: "/",
       maxAge: 1000 * 60 * 60 * 24,
     });
+
     return auth?.name || null;
   },
 };

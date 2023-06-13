@@ -15,7 +15,7 @@
 
   function onSuccess(e) {
     loading = false;
-    toast.success(`Selamat datang ${e.detail?.name} !`);
+    toast.success(`Selamat datang ${e.detail} !`);
     goto($page.data?.redirectTo);
   }
 
