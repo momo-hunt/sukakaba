@@ -7,13 +7,19 @@
   /* * {
     border: 1px solid red;
   } */
+
   section {
     margin: auto;
   }
 
   section span {
     color: hsl(206, 50%, 50%);
-    /* opacity: 0.8; */
+    opacity: 0.8;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
   }
 
   .loader {

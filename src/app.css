@@ -14,17 +14,133 @@ ul {
   list-style: none;
 }
 
+:root {
+  /* Increase or decrease the number 
+  to change the vertical spacing globally*/
+
+  /* Base Vertical Spacing */
+  --space: 1.5;
+
+  /* Vertical Spacing - multiplier */
+  --vspace: calc(var(--space) * 1rem);
+  --vspace-0: calc(3 * var(--space) * 1rem);
+  --vspace-1: calc(2 * var(--space) * 1rem);
+  --vspace-2: calc(1.5 * var(--space) * 1rem);
+  --vspace-3: calc(0.5 * var(--space) * 1rem);
+}
+
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: sans-serif;
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-size: 1.125em;
+  /* max-width: calc(25 * var(--vspace)); */
   color: hsl(206, 10%, 20%);
   background: hsl(206, 10%, 95%);
 }
 
-h1 {
-  font-size: 2em;
+p {
+  margin: var(--vspace) 0;
+  line-height: var(--vspace);
 }
 
-small {
-  font-size: 0.67em;
+h1 {
+  margin: var(--vspace-1) 0 var(--vspace-1) 0;
+  line-height: calc(4.3333 / var(--space) * var(--vspace));
+}
+
+h2 {
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
+  line-height: 1em;
+}
+
+h3 {
+  margin: var(--vspace-1) 0 var(--vspace-3) 0;
+  line-height: 1em;
+}
+
+h4,
+h5,
+h6 {
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
+  line-height: var(--vspace);
+}
+
+.bigtitle,
+h1 {
+  font-size: 4.3333em;
+  word-break: break-word;
+}
+
+.title,
+h2 {
+  font-size: 3.25em;
+  font-weight: lighter;
+  word-break: break-word;
+}
+
+.subheading1,
+h3 {
+  font-size: 2.0208em;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+blockquote {
+  font-size: 1.125em;
+  font-style: italic;
+  line-height: calc(1.125 * var(--vspace));
+  margin: var(--vspace-2) var(--vspace-2);
+}
+
+.subheading2,
+h4 {
+  font-size: 1.6667em;
+  text-transform: capitalize;
+}
+
+.subheading3,
+h5 {
+  font-size: 1.25em;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.subheading4,
+h6 {
+  font-size: 1.125em;
+  font-weight: normal;
+  font-style: italic;
+  font-family: "le-monde-livre-classic-byol", serif !important;
+  letter-spacing: 0px !important;
+}
+
+.caption_ts {
+  font-size: 0.9375em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.endnote_ts {
+  font-size: 0.9375em;
+}
+
+.footnote_ts {
+  margin: var(--vspace-0) 0 var(--vspace-2) 0;
+  font-size: 0.8542em;
+  border-top: 1px solid #ccc;
+  line-height: 2em;
+}
+
+sup {
+  font-size: 0.8542rem;
+  margin: 0.5em;
+  text-transform: none;
+  font-style: italic;
+  font-weight: normal;
 }
