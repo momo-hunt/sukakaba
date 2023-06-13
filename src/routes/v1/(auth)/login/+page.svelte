@@ -3,7 +3,7 @@
   import ErrorMessage from "./ErrorMessage.svelte";
   import LoginForm from "./LoginForm.svelte";
 
-  let error;
+  let error = false;
 </script>
 
 <main>
@@ -33,8 +33,8 @@
   }
 
   img {
-    width: min(100%, 400px);
-    margin-top: 4rem;
+    width: min(80%, 400px);
+    margin-top: 2rem;
   }
 
   header {
