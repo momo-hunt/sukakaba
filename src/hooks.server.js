@@ -15,7 +15,7 @@ export const handle = async ({ event, resolve }) => {
     }
   }
 
-  // console.log("user", event.locals.user);
+  console.log("user", event.locals.user);
 
   const token = event.locals?.user?.token;
   event.locals.db = db;

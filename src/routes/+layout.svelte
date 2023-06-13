@@ -1,6 +1,6 @@
-<script>
+<!-- <script>
   import "../../src/app.css";
-</script>
+</script> -->
 
 <svelte:head>
   <title>Jeep Kaba</title>

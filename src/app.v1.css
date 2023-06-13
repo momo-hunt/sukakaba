@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: hsl(206, 70%, 50%);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: hsl(206, 10%, 20%);
+  background: hsl(206, 25%, 95%);
+  font-size: 112.5%;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3.052rem;
+  line-height: 3.5rem;
+  margin: 2rem 0;
+}
+
+h2 {
+  font-size: 2.441rem;
+  line-height: 2.5rem;
+  margin: 1.5rem 0;
+}
+
+h3 {
+  font-size: 1.953rem;
+  line-height: 2rem;
+  margin: 1rem 0;
+}
+
+h4 {
+  font-size: 1.563rem;
+  line-height: 2rem;
+  margin: 0.5rem 0;
+}
+
+h5 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+h6 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+small {
+  font-size: 0.8rem;
+}
+
+input,
+select,
+button {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}

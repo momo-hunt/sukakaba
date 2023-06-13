@@ -22,7 +22,7 @@
     <h3>Tambah SPJ</h3>
 
     <label for="no_spj">No SPJ</label>
-    <input type="text" name="no_spj" id="no_spj" />
+    <input type="text" name="no_spj" id="no_spj" required />
 
     <label for="no_spj">Kepada</label>
     <select name="karyawan_id" id="karyawan_id">
@@ -42,7 +42,7 @@
     </div>
 
     <div class="action">
-      <button type="submit">Tambah</button>
+      <button type="submit" name="submit" value="submit">Tambah</button>
       <button on:click={() => toggle.close()}>Batal</button>
     </div>
   </Form>
